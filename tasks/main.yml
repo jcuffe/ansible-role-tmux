@@ -1,0 +1,8 @@
+---
+- name: install packaged dependencies
+  apt:
+    - name:
+        - autoconf
+        - automake
+        - pkg-config
+      state: present
