@@ -1,11 +1,12 @@
 ---
 - name: install packaged dependencies
+  become: true
   apt:
-    - name:
-        - autoconf
-        - automake
-        - pkg-config
-      state: present
+    name:
+      - autoconf
+      - automake
+      - pkg-config
+    state: present
 - name: copy tmux configuration
   copy:
     src: tmux.conf
