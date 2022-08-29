@@ -6,3 +6,7 @@
         - automake
         - pkg-config
       state: present
+- name: copy tmux configuration
+  copy:
+    src: tmux.conf
+    dest: ~/.config/tmux/tmux.conf
