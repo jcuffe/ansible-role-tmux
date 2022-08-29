@@ -7,7 +7,15 @@
       - automake
       - pkg-config
     state: present
-- name: copy tmux configuration
-  copy:
-    src: tmux.conf
-    dest: ~/.config/tmux/tmux.conf
+- name: apply tmux configuration
+  vars:
+    config_directory: "~/.config/tmux"
+  block:
+    - name: ensure existence of config directory
+      file:
+        path: "{{ config_directory }}"
+        state: directory
+    - name: copy tmux configuration
+      copy:
+        src: tmux.conf
+        dest: "{{ config_directory }}"
