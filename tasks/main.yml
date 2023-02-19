@@ -5,6 +5,7 @@
     name:
       - autoconf
       - automake
+      - bison
       - build-essential
       - libevent-dev
       - lib32ncurses-dev
