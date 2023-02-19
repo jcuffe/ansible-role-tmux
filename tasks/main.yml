@@ -5,8 +5,8 @@
     name:
       - autoconf
       - automake
-      - libevent
-      - ncurses
+      - libevent-dev
+      - lib32ncurses-dev
       - pkg-config
     state: present
 - name: install tmux from latest git master
