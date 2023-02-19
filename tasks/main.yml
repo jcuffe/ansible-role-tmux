@@ -16,12 +16,17 @@
       git:
         repo: https://github.com/tmux/tmux.git
         dest: "{{ tmux_source_dir }}"
-    - name: build from source and install
+    - name: run autogen
       shell:
-        cmd: |
-          sh autogen.sh
-          ./configure && make
-          # make install
+        cmd: sh autogen.sh
+        chdir: "{{ tmux_source_dir }}"
+    - name: build from source
+      shell:
+        cmd: ./configure && make
+        chdir: "{{ tmux_source_dir }}"
+    - name: install
+      shell:
+        cmd: make install
         chdir: "{{ tmux_source_dir }}"
 - name: apply tmux configuration
   vars:
