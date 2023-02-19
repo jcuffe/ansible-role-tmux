@@ -5,6 +5,7 @@
     name:
       - autoconf
       - automake
+      - build-essential
       - libevent-dev
       - lib32ncurses-dev
       - pkg-config
