@@ -7,6 +7,23 @@
       - automake
       - pkg-config
     state: present
+- name: install tmux from latest git master
+  become: true
+  vars:
+    tmux_source_dir: /usr/src/tmux
+  block:
+    - name: fetch source from git
+      git:
+        repo: https://github.com/tmux/tmux.git
+        dest: "{{ tmux_source_dir }}"
+    - name: build from source and install
+      shell:
+        cmd: |
+          sh autogen.sh
+          ./configure
+          make
+          make install
+        chdir: "{{ tmux_source_dir }}"
 - name: apply tmux configuration
   vars:
     config_directory: "~/.config/tmux"
