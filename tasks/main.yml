@@ -20,9 +20,8 @@
       shell:
         cmd: |
           sh autogen.sh
-          ./configure
-          make
-          make install
+          ./configure && make
+          # make install
         chdir: "{{ tmux_source_dir }}"
 - name: apply tmux configuration
   vars:
